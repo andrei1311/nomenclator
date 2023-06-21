@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const defaultValues = {
-  name: '',
-  code: '',
-  vatPercentage: 0,
-  purchasePrice: 0,
-  sellingPrice: 0,
-  status: 'active',
+  name: "",
+  code: "",
+  vatPercentage: "",
+  purchasePrice: "",
+  sellingPrice: "",
+  status: "",
+};
+
+const inactiveProductStyle = {
+  backgroundColor: "lightgray",
 };
 
 export const ProductForm = ({ onSubmit, initialData = {} }) => {
@@ -32,6 +36,7 @@ export const ProductForm = ({ onSubmit, initialData = {} }) => {
       <div className="w-full">
         <div className="relative flex mb-2">
           <input
+            required
             name="name"
             type="text"
             className="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none mt-10"
@@ -44,6 +49,7 @@ export const ProductForm = ({ onSubmit, initialData = {} }) => {
         </div>
         <div className="relative flex mb-6">
           <input
+            required
             type="text"
             className="peer min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none mt-10"
             name="code"
@@ -56,6 +62,7 @@ export const ProductForm = ({ onSubmit, initialData = {} }) => {
         </div>
         <div className="relative flex mb-6">
           <input
+            required
             type="number"
             className="peer min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none mt-10"
             name="vatPercentage"
@@ -96,7 +103,9 @@ export const ProductForm = ({ onSubmit, initialData = {} }) => {
             name="status"
             value={data.status}
             onChange={handleFieldChange}
+            required
           >
+            <option></option>
             <option value="active">Activ</option>
             <option value="inactive">Inactiv</option>
           </select>
