@@ -69,7 +69,14 @@ const Table = () => {
             </thead>
             <tbody className="p-2 border">
               {products.map((product) => (
-                <tr className="p-2 border" key={product.id}>
+                <tr
+                  className={`p-2 border ${
+                    product.status === "inactive"
+                      ? "bg-gray-300"
+                      : "bg-green-300"
+                  }`}
+                  key={product.id}
+                >
                   <td className="p-2 border">
                     <button
                       className="bg-green-600 rounded-lg"
